@@ -42,7 +42,7 @@ function ContentBlock(props) {
             </div>
             <div className="more">
                 {props.search.resultCount !== undefined && props.search.resultCount !== 0 ?
-                    <button className="moreButton" onClick={props.moreBlocks}>Еще</button> :
+                    props.maxBlocks < props.search.resultCount? <button className="moreButton" onClick={props.moreBlocks}>Еще</button>: '' :
                     <h2>Введите имя исполнителя</h2>}
             </div>
 
