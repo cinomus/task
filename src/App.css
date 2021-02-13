@@ -1,38 +1,305 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #3d4349;
+  font-size: 14px;
+}
+header {
+  margin-top: 10px;
+}
+.wrap {
+  width: 850px;
+  margin: 0 auto;
+}
+.search-block {
+  /* background: #f9F0DA; */
+  position: relative;
+  overflow: hidden;
+}
+.search-block form{
+  float: left;
+  overflow: hidden;
+  width: 70%;
+}
+.searchString, .search-block button {
+  outline: none;
+  background: transparent;
+
+}
+.searchString {
+  width: 90%;
+  height: 42px;
+  display: block;
+  float: left;
+  padding-left: 15px;
+  border-radius: 10px 0 0 10px;
+  border: 2px solid #989896;
+  border-right: none;
+  color: #828282;
+}
+.search-block button {
+  height: 42px;
+  width: 10%;
+  float: left;
+  border-radius: 0 10px 10px 0;
+  border: 2px solid #828282;
+  cursor: pointer;
+  color: #828282;
+}
+.search-block button:before {
+  /* content: "\f002"; */
+  font-size: 16px;
+  color: #828282;
+}
+.headerButton {
+  width: 10%;
+  float: left;
+  overflow: hidden;
+}
+.headerButton {
+  height: 42px;
+  float: left;
+  padding: 12px 15px;
+  cursor: pointer;
+  color: #828282;
+}
+.renderedBlocks {
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.product-block {
+  position: relative;
+  height: 300px;
+  padding: 5px;
+  margin: 5px;
+  float: left;
+  border: 1px solid #989896;
+  border-radius: 5px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.cov-img {
+  height: 190px;
+  width: 190px;
+}
+.desc {
+  width: 190px;
+  margin: 0;
+  color: #828282;
+}
+.selectedItem {
+  overflow: hidden;
+  float: left;
+  margin: 50px 15px 0 15px;
+}
+.item {
+  overflow: hidden;
+  color: #828282;
+}
+.itemImg {
+  float: left;
+  max-height: 200px;
+  border: 1px solid #3d4349;
+}
+.aboutItem {
+  float: left;
+  margin-left: 15px;
+}
+.song {
+  margin-top: 15px;
+  height: 50px;
+  width: 400px;
+}
+.preview {
+  margin-top: 20px;
+  color: #828282;
+}
+.preview p{
+  margin-bottom: 10px;
+}
+.more{
+  color: #828282;
+  margin: 10px 0 15px 0;
+}
+.moreButton {
+  margin: 0 45%;
+  font-weight: 700;
+  height: 40px;
+  width: 100px;
   color: white;
+  text-decoration: none;
+  padding: .3em 1em calc(.3em + 1px);
+  border: none;
+  border-radius: 3px;
+  background: #40C781;
+
+  transition: 0.2s;
 }
 
-.App-link {
-  color: #61dafb;
+.button {
+  position: absolute;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  height: 22px;
+  border: none;
+  border-radius: 3px;
+  background: #40C781;
+
+  transition: 0.2s;
+}
+.button:hover { background: #40C781; }
+.button:active {
+  background: #21935A;
+  /*box-shadow: 0 3px rgb(33,147,90) inset;*/
+}
+.buttonLeft {
+  top: 90%;
+  width: 45%;
+}
+.buttonRight {
+  top: 90%;
+  left: 63%;
+  width: 35%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.cartItems {
+  overflow: hidden;
+}
+.delete {
+  background: #EB4C42;
+  box-shadow: 0 -3px red inset;
+}
+.delete:hover { background: #A04444; }
+.deleteAll {
+  position: relative;
+  background: #EB4C42;
+  box-shadow: 0 -3px red inset;
+  width: 100px;
+}
+.deleteAll:hover { background: #A04444; }
+.chkboxDiv{
+  width: 10%;
+  height: 42px;
+  padding: 5px;
+  float: left;
+  cursor: pointer;
+  color: #828282;
+}
+.checkbox {
+  position: absolute;
+  -webkit-appearance: none;
+  width: 60px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+}
+.checkbox:checked {
+  background-color: #40C781;
+}
+.checkbox::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border-radius: 20px;
+  top: 3px;
+  left: 3px;
+  transition: .3s linear;
+}
+.checkbox:checked::before {
+  left: 33px;
+}
+.darkTheme {
+  background-color: #2B2B2B;
+  color: #828282;
+}
+.costString {
+  position: absolute;
+  top: 245px;
+}
+.cartInfo {
+  margin-top: 10px;
+  color: #828282;
+}
+.fixedButtons {
+  display: none;
+}
+@media screen and (max-width : 800px) {
+  .wrap {
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+  .fixedButtons {
+    z-index: 100;
+    display: block;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #fff;
+    /*border-top: 1px solid black;*/
+    box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+  }
+  .headerButtons {
+    display: none;
+  }
+  .search-block form{
+    width: 100%;
+  }
+  .search-block input {
+    width: 80%;
+  }
+  .search-block button {
+    width: 20%;
+  }
+  header {
+    padding: 0 10px;
+  }
+  .content {
+    padding: 0 10px;
+  }
+  .headerButton {
+    width: 25%;
+  }
+  .chkboxDiv {
+    float: right;
+    margin-right: 30px;
+  }
+  .moreButton {
+    margin: 0 35%;
+    margin-bottom: 40px;
+  }
+  .product-block {
+    width: 47%;
+  }
+  .cov-img {
+    width: 100%;
+  }
+  .desc {
+    width: 100%;
+  }
+  .selectedItem {
+    margin-top: 20px;
+  }
+  .aboutItem {
+    float: none;
+  }
+  .song {
+    width: 100%;
+  }
+  .feature-movie {
+    width: 100%;
+  }
+  .darkThemeFixedB {
+    background-color: #1B201F;
+  }
+  .cart {
+    padding: 0 10px;
   }
 }
