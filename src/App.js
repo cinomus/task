@@ -22,6 +22,7 @@ function App(){
     const [search, setSearch] = useState({});
     const [maxBlocks, setMaxBlocks] = useState(20);
     const [selectedItem, setSelectedItem] = useState({});
+    let [itemsInCart, setitemsInCart] = useState(0);
     let [cart, setCart] = useState([]);
     const changeTheme = () =>{
         setdarkTheme(!darkTheme)
@@ -36,14 +37,17 @@ function App(){
     const addToCart = (value) => {
         cart.push(value)
         setCart(cart)
+        setitemsInCart(itemsInCart + 1)
     }
     const deleteItem = (index) => {
         let arr = cart.slice()
         arr.splice(index, 1)
         setCart(arr)
+        setitemsInCart(itemsInCart - 1)
     }
     const deleteAll = () =>{
         setCart([])
+        setitemsInCart(itemsInCart = 0)
     }
 
     const moreBlocks = () => {
@@ -54,7 +58,7 @@ function App(){
         return (
             <BrowserRouter>
                 <div className="wrap">
-                    <Header getData={getData} changeTheme={changeTheme}/>
+                    <Header getData={getData} changeTheme={changeTheme} itemsInCart={itemsInCart}/>
                     <Route exact path='/' render={props => <ContentBlock
                         addToCart={addToCart}
                         search={search}
@@ -80,7 +84,7 @@ function App(){
                     </NavLink>
                     <NavLink to='/cart'>
                         <div className="headerButton" >
-                            Корзина
+                            Корзина ({itemsInCart})
                         </div>
                     </NavLink>
                     <div className="chkboxDiv">

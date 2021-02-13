@@ -269,7 +269,7 @@ button:focus {
     padding: 0 10px;
   }
   .headerButton {
-    width: 25%;
+    width: 26%;
   }
   .chkboxDiv {
     float: right;
@@ -308,5 +308,8 @@ button:focus {
   }
   .cart {
     padding: 0 10px;
+  }
+  .cartInfo {
+    margin-bottom: 45px;
   }
 }

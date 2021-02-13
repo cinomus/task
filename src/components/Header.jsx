@@ -74,7 +74,7 @@ function Header(props) {
                     </NavLink>
                     <NavLink to='/cart'>
                         <div className="headerButton">
-                            Корзина
+                            Корзина ({props.itemsInCart})
                         </div>
                     </NavLink>
                     <div className="chkboxDiv">
